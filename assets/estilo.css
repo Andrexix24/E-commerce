@@ -3,3 +3,9 @@
     margin: 0;
     box-sizing: 15px;
 }
+
+.grid{
+    display: grid;
+    grid-template-rows: auto;
+    gap: 1rem;
+}
