@@ -5,11 +5,15 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-/* .grid{
+.grid{
     display: grid;
-    grid-template-rows: auto;
+    grid-template-columns: 1fr;
     gap: 1rem;
-} */
+}
+
+body {
+    background: black;
+}
 
 .nav-bar{
     background: rgb(0, 0, 0);
@@ -48,10 +52,15 @@
 }
 
 .productos{
+    margin: 40px;
     padding: 10px;
     color: rgb(209, 201, 201);
     background: rgb(0, 0, 0);
     display: block;
+}
+
+.h2 {
+    font-weight: lighter;
 }
 
 .flex{
@@ -82,7 +91,7 @@
     color: rgb(209, 201, 201);
     background: rgb(82, 3, 85);
     font-size: large;
-    
+    border: 1px solid #FFFF;
 }
 
 /* .card:hover{
