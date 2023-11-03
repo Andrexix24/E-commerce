@@ -55,7 +55,6 @@ body {
     margin: 40px;
     padding: 10px;
     color: rgb(209, 201, 201);
-    background: rgb(0, 0, 0);
     display: block;
 }
 
@@ -98,3 +97,22 @@ body {
 
 } */
 
+.form{
+    width: 300px;
+    margin: auto;
+}
+
+.control{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.footer{
+    text-align: center;
+    padding: 50px;
+    color: white;
+    text-decoration: none;
+    background-color: rgb(48, 48, 48);
+    
+}
