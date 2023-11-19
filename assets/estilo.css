@@ -85,7 +85,21 @@ body {
     margin: 3px auto;
 }
 
+.p{
+    text-align: center;
+    margin: 5px;
+}
+
 .card button{
+    border-radius: 5px;
+    color: rgb(209, 201, 201);
+    background: rgb(82, 3, 85);
+    font-size: large;
+    border: none;
+}
+
+.buttom {
+    text-align: center;
     border-radius: 5px;
     color: rgb(209, 201, 201);
     background: rgb(82, 3, 85);
