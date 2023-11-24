@@ -1,0 +1,162 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Usuarios</title>
+</head>
+<body>
+
+<h2>Registro de Usuarios</h2>
+
+<form id="registroUsuarioForm">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" required>
+  <br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" required>
+  <br><br>
+  <label for="edad">Edad:</label>
+  <input type="number" id="edad" required>
+  <br><br>
+  <button type="submit">Registrar Usuario</button>
+</form>
+
+<h3>Usuarios Registrados</h3>
+<ul id="usuariosList"></ul>
+
+<script>
+  // Array donde se almacenarán los usuarios
+  let usuarios = [];
+
+  // Función para agregar un usuario al array y actualizar la lista
+  function agregarUsuario(event) {
+    event.preventDefault();
+    
+    // Obtener los valores de los campos del formulario
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const edad = document.getElementById('edad').value;
+
+    // Crear un objeto de usuario con los datos ingresados
+    const nuevoUsuario = {
+      nombre: nombre,
+      email: email,
+      edad: edad
+    };
+
+    // Agregar el nuevo usuario al array si los campos no están vacíos
+    if (nombre.trim() !== '' && email.trim() !== '' && edad.trim() !== '') {
+      usuarios.push(nuevoUsuario);
+      actualizarListaUsuarios();
+      resetForm();
+    }
+  }
+
+  // Función para actualizar la lista de usuarios en el HTML
+  function actualizarListaUsuarios() {
+    const usuariosList = document.getElementById('usuariosList');
+    usuariosList.innerHTML = ''; // Limpiar la lista antes de actualizar
+
+    // Recorrer el array de usuarios y mostrar cada usuario en la lista
+    usuarios.forEach(usuario => {
+      const li = document.createElement('li');
+      li.textContent = `Nombre: ${usuario.nombre}, Email: ${usuario.email}, Edad: ${usuario.edad}`;
+      usuariosList.appendChild(li);
+    });
+  }
+
+  // Función para reiniciar el formulario después de agregar un usuario
+  function resetForm() {
+    document.getElementById('nombre').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('edad').value = '';
+  }
+
+  // Evento para el envío del formulario
+  const form = document.getElementById('registroUsuarioForm');
+  form.addEventListener('submit', agregarUsuario);
+</script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validación de Formulario</title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Formulario de Registro</h2>
+
+  <form id="registroForm" onsubmit="return validarFormulario()">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre">
+    <span id="errorNombre" class="error"></span>
+
+    <br>
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email">
+    <span id="errorEmail" class="error"></span>
+
+    <br>
+
+    <label for="password">Contraseña:</label>
+    <input type="password" id="password" name="password">
+    <span id="errorPassword" class="error"></span>
+
+    <br>
+
+    <input type="submit" value="Registrarse">
+  </form>
+
+  <script>
+    function validarFormulario() {
+      var nombre = document.getElementById('nombre').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      var errorNombre = document.getElementById('errorNombre');
+      var errorEmail = document.getElementById('errorEmail');
+      var errorPassword = document.getElementById('errorPassword');
+
+      // Validación del nombre (por ejemplo, mínimo 3 caracteres)
+      if (nombre.length < 3) {
+        errorNombre.textContent = 'El nombre debe tener al menos 3 caracteres.';
+        return false;
+      } else {
+        errorNombre.textContent = '';
+      }
+
+      // Validación del correo electrónico
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        errorEmail.textContent = 'Correo electrónico inválido.';
+        return false;
+      } else {
+        errorEmail.textContent = '';
+      }
+
+      // Validación de la contraseña (por ejemplo, mínimo 6 caracteres)
+      if (password.length < 6) {
+        errorPassword.textContent = 'La contraseña debe tener al menos 6 caracteres.';
+        return false;
+      } else {
+        errorPassword.textContent = '';
+      }
+
+      // Si la validación pasa, el formulario se envía
+      return true;
+    }
+  </script>
+
+</body>
+</html>
